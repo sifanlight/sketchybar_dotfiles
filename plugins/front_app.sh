@@ -13,4 +13,6 @@ if [ "$SENDER" = "front_app_switched" ]; then
              icon="$icon" \
              icon.font="sketchybar-app-font:Regular:16.0" \
              label="$INFO"
+elif [ "$SENDER" = "display_change" ]; then
+  sketchybar --reload
 fi
