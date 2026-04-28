@@ -6,8 +6,10 @@
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
-# Show the bar on all monitors at all times
-sketchybar --bar position=top height=35 blur_radius=30 color=0x40000000 display=all
+# Show the bar on the main monitor
+#sketchybar --bar position=top height=35 blur_radius=30 color=0x40000000 display=main
+sketchybar --bar position=top height=35 color=0xFF000000 display=main
+
 
 ##### Changing Defaults #####
 default=(
@@ -31,7 +33,6 @@ sketchybar --add event aerospace_workspace_change
 for monitor in $(sketchybar --query displays | jq -r '.[] | ."arrangement-id"'); do
   sketchybar --add item "workspace_current.$monitor" left \
              --set "workspace_current.$monitor" \
-                   display="$monitor" \
                    icon.padding_left=10 \
                    icon.padding_right=10 \
                    background.color=0xffffffff \
